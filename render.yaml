@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: pitchside
+    runtime: node
+    plan: free
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      # Optional: uncomment and set in the Render dashboard for Betway/UK prices.
+      # - key: ODDS_API_KEY
+      #   sync: false
